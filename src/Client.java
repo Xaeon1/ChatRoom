@@ -40,7 +40,6 @@ public class Client {
                 }
             }
             inputThread.join();
-            socket.close();
         }catch (IOException | InterruptedException e){
             e.printStackTrace();
         }

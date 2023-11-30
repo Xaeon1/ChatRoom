@@ -8,8 +8,9 @@ public class Server {
     private static List<ClientHandler> clients = new LinkedList<>();
     public static void main(String[] args) {
         try(ServerSocket server = new ServerSocket(port)){
+            ClientHandler clientHandler;
             while(true){
-                ClientHandler clientHandler = new ClientHandler(server.accept());
+                clientHandler = new ClientHandler(server.accept());
                 System.out.println(clientHandler.getClientName() + " has joined the chatroom...");
                 clients.add(clientHandler);
                 new Thread(clientHandler).start();
